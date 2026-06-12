@@ -456,12 +456,16 @@ elif menu == "Integrasi Deep Learning (Forecasting)":
 
             # === OUTPUT 1: METRIK PERFORMA MODEL DL ===
             st.subheader("📊 1. Performa Model Deep Learning (MLP Regressor)")
-            st.caption("Metrik ini diambil dari file hasil training asli model:")
+            st.caption("Metrik evaluasi regresi runtun waktu berdasarkan hasil training data nyata:")
             
-            col_m1, col_m2, col_m3 = st.columns(3)
-            col_m1.metric(label="R-Squared (R² Score)", value=f"{saved_metrics['r2']:.3f}", delta="Akurasi Prediksi")
-            col_m2.metric(label="Mean Absolute Error (MAE)", value=f"{saved_metrics['mae']:.4f}", delta="Rata-rata Error", delta_color="inverse")
-            col_m3.metric(label="Mean Squared Error (MSE)", value=f"{saved_metrics['mse']:.4f}", delta="Varians Error", delta_color="inverse")
+            # Membuat 5 kolom horizontal
+            col_m1, col_m2, col_m3, col_m4, col_m5 = st.columns(5)
+            
+            col_m1.metric(label="R-Squared (R²)", value=f"{saved_metrics['r2']:.3f}")
+            col_m2.metric(label="MAE", value=f"{saved_metrics['mae']:.4f}")
+            col_m3.metric(label="MSE", value=f"{saved_metrics['mse']:.4f}")
+            col_m4.metric(label="RMSE", value=f"{saved_metrics['rmse']:.4f}")
+            col_m5.metric(label="MAPE", value=f"{saved_metrics['mape']:.2f}%")
 
             st.markdown("---")
 

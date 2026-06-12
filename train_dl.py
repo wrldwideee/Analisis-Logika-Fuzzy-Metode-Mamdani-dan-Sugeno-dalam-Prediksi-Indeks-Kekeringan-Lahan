@@ -43,22 +43,33 @@ def main():
                          verbose=True)
     model.fit(X, y)
 
-    # === HITUNG METRIK ASLI ===
-    print("Menghitung metrik performa...")
+    # === HITUNG METRIK ASLI (LENGKAP) ===
+    print("Menghitung metrik performa (R², MAE, MSE, RMSE, MAPE)...")
+    from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score, mean_absolute_percentage_error
+    
     y_pred_all = model.predict(X)
+    
     r2 = r2_score(y, y_pred_all)
     mae = mean_absolute_error(y, y_pred_all)
     mse = mean_squared_error(y, y_pred_all)
-    
-    metrics = {'r2': r2, 'mae': mae, 'mse': mse}
+    rmse = np.sqrt(mse) # RMSE adalah akar dari MSE
+    mape = mean_absolute_percentage_error(y, y_pred_all) * 100 # Diubah ke format persen (%)
+
+    metrics = {
+        'r2': r2, 
+        'mae': mae, 
+        'mse': mse,
+        'rmse': rmse,
+        'mape': mape
+    }
 
     # === SIMPAN SEMUA FILE KE FOLDER ===
     print("Menyimpan model, scaler, dan metrics...")
     joblib.dump(model, 'dl_model.pkl')
     joblib.dump(scaler, 'scaler.pkl')
-    joblib.dump(metrics, 'metrics.pkl') # <-- Wajib ada ini!
+    joblib.dump(metrics, 'metrics.pkl')
 
-    print("Selesai! Semua file berhasil dibuat.")
+    print("Selesai! Semua file berhasil diperbarui.")
 
 if __name__ == "__main__":
     main()
