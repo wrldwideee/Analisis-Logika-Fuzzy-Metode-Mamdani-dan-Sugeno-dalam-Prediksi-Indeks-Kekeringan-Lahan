@@ -196,3 +196,19 @@ Proyek ini dilisensikan di bawah [MIT License](LICENSE).
 ---
 
 *Dikembangkan sebagai implementasi sistem cerdas hibrida untuk pemantauan dan prediksi kekeringan lahan berbasis data iklim.*
+
+---
+
+## 📥 Dataset
+
+Dataset iklim BMKG yang digunakan dalam proyek ini berukuran >20MB sehingga tidak di-host langsung di repository. Download melalui Google Drive:
+
+[⬇️ Download climate_data.csv](https://drive.google.com/uc?export=download&id=1ROSwm5c7ERjDfOqK7mu6hoSsu08r0EqV)
+
+> **Catatan:** Setelah download, letakkan file `climate_data.csv` di direktori yang sama dengan `app.py` sebelum menjalankan aplikasi.
+
+---
+
+## 🚗🍞 mobil roti
+
+![mobil roti](./mobil_roti.png)
